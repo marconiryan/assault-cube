@@ -48,3 +48,9 @@ DWORD getDynamicAddress(HANDLE hProcess, uintptr_t dynamicBaseAddress, std::vect
     }
     return dynamicAddress;
 }
+
+void WriteProcess(DWORD procId, DWORD BaseDynamicAddress, HANDLE hproc, std::vector<unsigned int> ammoOffsets, int value) {
+    DWORD Addr = getDynamicAddress(hproc, BaseDynamicAddress, ammoOffsets);
+    WriteProcessMemory(hproc, (BYTE*)Addr, &value, sizeof(value), nullptr);
+
+}

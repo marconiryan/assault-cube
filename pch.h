@@ -8,3 +8,4 @@
 DWORD getProcessIDbyName(const  wchar_t* moduleName);
 HMODULE getBaseModuleAddress(DWORD processID, const  wchar_t* moduleName);
 DWORD getDynamicAddress(HANDLE hProcess, uintptr_t dynamicBaseAddress, std::vector<unsigned int> offsets);
+void WriteProcess(DWORD procId, DWORD BaseDynamicAddress, HANDLE hproc, std::vector<unsigned int> ammoOffsets, int value);
